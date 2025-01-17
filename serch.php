@@ -166,74 +166,6 @@ $is_admin = isset($_SESSION['is_admin']) && $_SESSION['is_admin'] === true;
         .link-icon:hover {
             opacity: 0.8;
         }
-        .table-container {
-            max-height: 400px;
-            overflow-y: auto;
-        }
-        .table{
-          width: 1000px;
-
-        }
-::-webkit-scrollbar {
-  width:5px;
-  height: 5px;
-  border-radius: 20px;
-  overflow: hidden;
-}
-::-webkit-scrollbar-track {
-  background-color: rgba(11, 153, 141, 0.29);
-  border-radius: 20px;
-
-}
-::-webkit-scrollbar-thumb {
-  background-color: rgb(11, 153, 141);;
-  border-radius: 20px;
-
-}
-.t-head {
-  background-color: rgb(11, 153, 141);
-  color: white;
-  border-radius: 15px;
-  padding: 15px 7px;
-}
-
-.t-head > h6:first-child ,
-.t-body  h6:first-child {
-  width: 24px !important;
-}
-.t-body  h6 ,
-.t-head > h6,
-.t-body  .actions{
-  width: calc(100% / 7);
-  text-align: center;
-  flex-shrink: 0;
-  margin-bottom: 0;
-}
-.head {
-  position: sticky;
-  padding-bottom: 10px;
-  top: 0;
-}
-
-.t-body > div {
-  padding: 15px 7px;
-  border-radius: 15px;
-}
-.t-body > div:nth-child(even) {
-  background-color: rgba(11, 153, 141, 0.3);
-}
-.t-body > div:nth-child(odd) {
-  background-color: rgba(11, 153, 141, 0.1);
-}
-.t-body  h6 {
-  font-size: 14px;
-}
-.t-body {
-  margin-top: 10px;;
-}
-.t-body > div:not(:last-child) {
-  margin-bottom: 10px;
-}
     </style>
 </head>
 
@@ -313,7 +245,7 @@ $is_admin = isset($_SESSION['is_admin']) && $_SESSION['is_admin'] === true;
 
 
         <?php if ($is_admin): ?>
-            <div class="text-center mt-3 test">
+            <div class="text-center mt-3">
                 <a href="info_add.php" class="get_whatsapp">إضافة بيانات جديدة</a>
             </div>
         <?php endif; ?>

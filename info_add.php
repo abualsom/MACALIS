@@ -90,7 +90,7 @@ $rows_1 = $conn->query($sql_select_1);
     }
 
     .container {
-      max-width: 1199px;
+      max-width: 900px;
       margin: 0 auto;
       background: #fff;
       padding: 20px;
@@ -194,85 +194,16 @@ $rows_1 = $conn->query($sql_select_1);
       letter-spacing: -1px;
       word-spacing: -0.10cap;
     }
-     .select2-selection.select2-selection--single,
-         .select2-selection__rendered,
-         .select2-selection__arrow {
+    .select2-selection.select2-selection--single,
+        .select2-selection__rendered,
+        .select2-selection__arrow {
             height: 48px !important;
         }
 
-         .select2-selection__rendered,
-         .select2-selection__arrow {
+        .select2-selection__rendered,
+        .select2-selection__arrow {
             line-height: 48px !important;
-        }  
-        
-        .table-container {
-            max-height: 400px;
-            overflow-y: auto;
-        }
-        .table{
-          width: 1000px;
-
-        }
-::-webkit-scrollbar {
-  width:5px;
-  height: 5px;
-  border-radius: 20px;
-  overflow: hidden;
-}
-::-webkit-scrollbar-track {
-  background-color: rgba(11, 153, 141, 0.29);
-  border-radius: 20px;
-
-}
-::-webkit-scrollbar-thumb {
-  background-color: rgb(11, 153, 141);;
-  border-radius: 20px;
-
-}
-.t-head {
-  background-color: rgb(11, 153, 141);
-  color: white;
-  border-radius: 15px;
-  padding: 15px 7px;
-}
-
-.t-head > h6:first-child ,
-.t-body  h6:first-child {
-  width: 24px !important;
-}
-.t-body  h6 ,
-.t-head > h6,
-.t-body  .actions{
-  width: calc(100% / 7);
-  text-align: center;
-  flex-shrink: 0;
-  margin-bottom: 0;
-}
-.head {
-  position: sticky;
-  padding-bottom: 10px;
-  top: 0;
-}
-
-.t-body > div {
-  padding: 15px 7px;
-  border-radius: 15px;
-}
-.t-body > div:nth-child(even) {
-  background-color: rgba(11, 153, 141, 0.3);
-}
-.t-body > div:nth-child(odd) {
-  background-color: rgba(11, 153, 141, 0.1);
-}
-.t-body  h6 {
-  font-size: 14px;
-}
-.t-body {
-  margin-top: 10px;;
-}
-.t-body > div:not(:last-child) {
-  margin-bottom: 10px;
-}
+        }             
   </style>
 </head>
 
@@ -300,7 +231,7 @@ $rows_1 = $conn->query($sql_select_1);
 
       <div class="form-group">
         <label for="day" style="position: relative; top: -4px;">اليوم:</label>
-        <select multiple  class="form-control" id="day" name="day[]" required style="line-height: 2; padding-top: 2px;">
+        <select multiple class="form-control" id="day" name="day[]" required style="line-height: 2; padding-top: 2px;">
           <option value="الجمعة">الجمعة</option>
           <option value="السبت">السبت</option>
           <option value="الأحد">الأحد</option>
@@ -368,45 +299,44 @@ $rows_1 = $conn->query($sql_select_1);
     </form>
 
 
-    <div class="table-container">
-      <div class="table flex-column p-2 d-flex aliicn-items-center rounded mt-4" id="lessons-table">
-        <h5 class="my-3 flex-grow-1 text-center">قائمة المعلومات</h5>
-        <div class="head bg-white">
-        <div class="t-head d-flex align-items-center">
-          <h6>#</h6>
-          <h6>المنطقة</h6>
-          <h6>اليوم</h6>
-          <h6>وقت الدرس</h6>
-          <h6>اسم الكتاب</h6>
-          <h6>اسم الشيخ</h6>
-          <h6>الملاحظات</h6>
-          <h6>الإجراءات</h6>
-        </div>
-        </div>
-        <div class="t-body">
-        <?php
+    <div class="overflow-auto w-100">
+      <table id="lessons-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>المنطقة</th>
+            <th>اليوم</th>
+            <th>وقت الدرس </th>
+            <th>اسم الكتاب</th>
+            <th>اسم الشيخ</th>
+            <th>الملاحظات</th>
+            <th>الإجراءات</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php
           if ($rows->num_rows > 0) {
             while ($row = $rows->fetch_assoc()) {
               echo '
-              <div class="d-flex align-items-center">
-                  <h6>' . $row['id'] . '</h6>
-                  <h6>' . $row['location'] . '</h6>
-                  <h6>' . $row['day'] . '</h6>
-                  <h6>' . $row['ders_tame'] . '</h6>
-                  <h6>' . $row['book'] . '</h6>
-                  <h6>' . $row['teacher'] . '</h6>
-                  <h6>' . $row['notes'] . '</h6>
-                  <div class="actions">
+              <tr>
+                  <td>' . $row['id'] . '</td>
+                  <td>' . $row['location'] . '</td>
+                  <td>' . $row['day'] . '</td>
+                  <td>' . $row['ders_tame'] . '</td>
+                  <td>' . $row['book'] . '</td>
+                  <td>' . $row['teacher'] . '</td>
+                  <td>' . $row['notes'] . '</td>
+                  <td>
                       <div class="d-flex justify-content-center gap-2 align-items-center">
-                          <a class="btn px-2 btn-primary update" href="update.php?id=' . $row['id'] . '">
+                          <a class="btn py-2 btn-primary update" href="update.php?id=' . $row['id'] . '">
                               <i class="bi bi-pencil-square"></i>
                           </a>
-                          <a class="btn px-2 btn-danger" href="delet.php?id=' . $row['id'] . '" onclick="return confirmDelete();">
+                          <a class="btn py-2 btn-danger" href="delet.php?id=' . $row['id'] . '" onclick="return confirmDelete();">
                               <i class="bi bi-trash"></i>
                           </a>
                       </div>
-                  </div>
-              </div>
+                  </td>
+              </tr>
               ';
             }
           } else {
@@ -416,8 +346,8 @@ $rows_1 = $conn->query($sql_select_1);
             </tr>
             ';
           } ?>
-        </div>
-      </div>
+        </tbody>
+      </table>
     </div>
     <script>
       function confirmDelete() {
