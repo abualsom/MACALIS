@@ -313,7 +313,7 @@ $is_admin = isset($_SESSION['is_admin']) && $_SESSION['is_admin'] === true;
 
 
         <?php if ($is_admin): ?>
-            <div class="text-center mt-3">
+            <div class="text-center mt-3 test">
                 <a href="info_add.php" class="get_whatsapp">إضافة بيانات جديدة</a>
             </div>
         <?php endif; ?>
