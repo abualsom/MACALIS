@@ -12,7 +12,6 @@ $is_admin = isset($_SESSION['is_admin']) && $_SESSION['is_admin'] === true;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>عرض أماكن الدروس</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <!-- إضافة ملفات CSS الخاصة بـ Bootstrap و Select2 -->
     <link
         href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         rel="stylesheet" />
@@ -27,12 +26,10 @@ $is_admin = isset($_SESSION['is_admin']) && $_SESSION['is_admin'] === true;
     <link rel="icon" href="heder-icon.png"
         type="image/png">
 
-    <!-- إضافة مكتبة jQuery و Select2 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 
     <style>
-        /* إضافة بعض التنسيقات المخصصة */
         body {
             display: flex;
             justify-content: center;
@@ -104,7 +101,6 @@ $is_admin = isset($_SESSION['is_admin']) && $_SESSION['is_admin'] === true;
 
         tr:hover {
             background-color: rgba(11, 153, 141, 0.1);
-            /* تأثير عند التمرير */
         }
 
         .form-control {
@@ -239,7 +235,7 @@ $is_admin = isset($_SESSION['is_admin']) && $_SESSION['is_admin'] === true;
                 </button>
             </div>
             <?php if (!$is_admin): ?>
-                <a href="https://wa.me/963980017439" class="get_whatsapp">تواصل معنا لإضافة دروس أو تعديلها</a>
+                <a href="https://wa.me/963980017439" class="get_whatsapp">تواصل معنا لإضافة الدروس أو تعديلها</a>
             <?php endif; ?>
         </form>
 
@@ -281,7 +277,6 @@ $is_admin = isset($_SESSION['is_admin']) && $_SESSION['is_admin'] === true;
 
                             if (!empty($_GET['day'])) {
                                 $day = trim($_GET['day']);
-                                // استخدام LIKE للبحث عن اليوم داخل النصوص
                                 $conditions[] = "day LIKE '%$day%'";
                             }
 
