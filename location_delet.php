@@ -1,10 +1,9 @@
 <?php
 include('conn.php');
 if (isset($_GET['id'])) {
-    $delet_id = intval($_GET['id']); // تأكد من أن id هو رقم صحيح
+    $delet_id = intval($_GET['id']); 
     $query = "DELETE FROM location_add WHERE id = ?";
 
-    // استخدام Prepared Statements للحماية من SQL Injection
     $stmt = $conn->prepare($query);
     $stmt->bind_param("i", $delet_id);
 

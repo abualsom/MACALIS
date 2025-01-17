@@ -4,7 +4,6 @@
 session_start();
 include('conn.php');
 
-// تحقق من تسجيل الدخول
 if (!isset($_SESSION['is_admin']) || !$_SESSION['is_admin']) {
     header('Location: login.php');
     exit;

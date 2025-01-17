@@ -2,11 +2,10 @@
 
 session_start();
 include('conn.php');
-// تحقق من تسجيل الدخول
 
 
 if (!isset($_SESSION['is_admin']) || !$_SESSION['is_admin']) {
-  header('Location: login.php'); // إعادة التوجيه لصفحة تسجيل الدخول
+  header('Location: login.php'); 
   exit;
 }
 
@@ -15,17 +14,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   if (isset($_POST['submit'])) {
     if (!empty($_POST['location']) && !empty($_POST['day']) && !empty($_POST['book']) && !empty($_POST['teacher'])) {
       $location = $_POST["location"];
-      $day = $_POST['day']; // ستكون مصفوفة
+      $day = $_POST['day'];
       $day_string = implode(' - ', $day);
       $book = $_POST["book"];
       $teacher = $_POST["teacher"];
       $notes = $_POST["notes"];
       $ders_tame = $_POST['ders_tame'];
       $adres = $_POST['adres'];
-      // استعلام لإدخال البيانات
+
       $sql = "INSERT INTO macales (location, day , book , teacher , notes , ders_tame , adres) VALUES ('$location' , '$day_string', '$book' , '$teacher' , '$notes', '$ders_tame' , '$adres')";
       if ($conn->query($sql) === TRUE) {
-        #echo "تم إضافة البيانات بنجاح!";
         header("Location: info_add.php");
         exit();
       } else {
@@ -65,10 +63,10 @@ $rows_1 = $conn->query($sql_select_1);
     rel="stylesheet" />
   <link rel="icon" href="heder-icon.png"
     type="image/png">
-  <!-- إضافة CSS الخاص بـ Select2 -->
+
   <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-beta.1/css/select2.min.css" rel="stylesheet" />
 
-  <!-- إضافة JavaScript الخاص بـ Select2 -->
+
   <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
@@ -108,7 +106,6 @@ $rows_1 = $conn->query($sql_select_1);
       font-weight: bold;
       margin-bottom: 20px;
       text-align: center;
-      /* لجعل النص في المنتصف أفقيًا */
       line-height: 55px;
     }
 
@@ -148,13 +145,9 @@ $rows_1 = $conn->query($sql_select_1);
       margin-top: 20px;
       border-collapse: collapse;
       background: #fff;
-      /* خلفية الجدول مثل النموذج */
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      /* ظل مشابه للنموذج */
       border-radius: 10px;
-      /* الزوايا الدائرية */
       overflow: hidden;
-      /* منع العناصر من الخروج خارج الحواف */
     }
 
     th,
@@ -176,7 +169,6 @@ $rows_1 = $conn->query($sql_select_1);
 
     tr:hover {
       background-color: rgba(11, 153, 141, 0.1);
-      /* تأثير عند التمرير */
     }
 
     .update {
@@ -212,7 +204,6 @@ $rows_1 = $conn->query($sql_select_1);
   <div class="container">
     <h2>إضافة معلومات الدروس</h2>
 
-    <!-- نموذج إضافة معلومات الدرس -->
     <form action="" method="POST">
       <div class="form-group">
         <label for="location">المنطقة:</label>
@@ -299,7 +290,7 @@ $rows_1 = $conn->query($sql_select_1);
 
     </form>
 
-    <div class="overflow-auto w-100" style="height: 400px;"> <!-- أضف ارتفاعًا للتمرير -->
+    <div class="overflow-auto w-100" style="height: 400px;"> 
       <table id="lessons-table" style="width: 100%; border-collapse: collapse;">
         <thead>
           <tr>

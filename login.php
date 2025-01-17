@@ -35,7 +35,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 
-
 $conn->close();
 ?>
 
@@ -47,8 +46,8 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>نموذج تسجيل الدخول</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="icon" href="heder-icon.png"
-        type="image/png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="icon" href="heder-icon.png" type="image/png">
 
     <style>
         .forgot-password {
@@ -83,8 +82,21 @@ $conn->close();
             max-width: 400px;
         }
 
-        input.form-control {
-            border: 1.5px solid #333;
+        .form-control {
+            padding-right: 2.5rem;
+        }
+
+        .input-icon {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        .input-group {
+            position: relative;
         }
 
         label.form-label {
@@ -107,17 +119,26 @@ $conn->close();
 
             <div class="mb-3">
                 <label for="username" class="form-label">اسم المستخدم</label>
-                <input type="username" class="form-control" id="username" name="user_name" required>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="username" name="user_name" required>
+                    <i class="bi bi-person input-icon"></i>
+                </div>
             </div>
 
             <div class="mb-3">
                 <label for="password" class="form-label">كلمة المرور</label>
-                <input type="password" class="form-control" id="password" name="password" required>
+                <div class="input-group">
+                    <input type="password" class="form-control" id="password" name="password" required>
+                    <i class="bi bi-lock input-icon"></i>
+                </div>
             </div>
+
             <button type="submit" class="btn btn-success w-100" style="background-color: rgb(11, 163, 151);">تسجيل الدخول</button>
             <a href="https://t.me/m/THsU-_qcOTg0" class="forgot-password"> لقد نسيت كلمة المرور </a>
         </form>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-Q6T9PpcMuRYcBOYeQ7WpdQJwNcSwwtbmsyGe6CF5JsFecJXx7HC36p6PImqM6YOE" crossorigin="anonymous"></script>
 </body>
 
 </html>

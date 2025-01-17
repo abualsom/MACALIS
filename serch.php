@@ -54,7 +54,6 @@ $is_admin = isset($_SESSION['is_admin']) && $_SESSION['is_admin'] === true;
             font-weight: bold;
             margin-bottom: 20px;
             text-align: center;
-            /* لجعل النص في المنتصف أفقيًا */
             line-height: 55px;
         }
 
@@ -73,13 +72,9 @@ $is_admin = isset($_SESSION['is_admin']) && $_SESSION['is_admin'] === true;
             margin-top: 20px;
             border-collapse: collapse;
             background: #fff;
-            /* خلفية الجدول مثل النموذج */
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            /* ظل مشابه للنموذج */
             border-radius: 10px;
-            /* الزوايا الدائرية */
             overflow: hidden;
-            /* منع العناصر من الخروج خارج الحواف */
         }
 
         th,

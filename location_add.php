@@ -3,7 +3,7 @@ include('conn.php');
 session_start();
 
 if (!isset($_SESSION['is_admin']) || !$_SESSION['is_admin']) {
-    header('Location: login.php'); // إعادة التوجيه لصفحة تسجيل الدخول
+    header('Location: login.php'); 
     exit;
 }
 $error_massage = " ";
@@ -13,7 +13,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (!empty($_POST['location_name'])) {
             $location_name = $_POST["location_name"];
 
-            // استعلام لإدخال البيانات
             $sql = "INSERT INTO location_add (location_name) VALUE ('$location_name')";
             if ($conn->query($sql) === TRUE) {
                 echo "تم إضافة البيانات بنجاح!";
@@ -100,13 +99,9 @@ $rows = $conn->query($sql_select);
             margin-top: 20px;
             border-collapse: collapse;
             background: #fff;
-            /* خلفية الجدول مثل النموذج */
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            /* ظل مشابه للنموذج */
             border-radius: 10px;
-            /* الزوايا الدائرية */
             overflow: hidden;
-            /* منع العناصر من الخروج خارج الحواف */
         }
 
         th,
@@ -128,7 +123,6 @@ $rows = $conn->query($sql_select);
 
         tr:hover {
             background-color: rgba(11, 153, 141, 0.1);
-            /* تأثير عند التمرير */
         }
 
         .btn {
