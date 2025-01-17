@@ -194,16 +194,17 @@ $rows_1 = $conn->query($sql_select_1);
       letter-spacing: -1px;
       word-spacing: -0.10cap;
     }
-    .select2-selection.select2-selection--single,
-        .select2-selection__rendered,
-        .select2-selection__arrow {
-            height: 48px !important;
-        }
 
-        .select2-selection__rendered,
-        .select2-selection__arrow {
-            line-height: 48px !important;
-        }             
+    .select2-selection.select2-selection--single,
+    .select2-selection__rendered,
+    .select2-selection__arrow {
+      height: 48px !important;
+    }
+
+    .select2-selection__rendered,
+    .select2-selection__arrow {
+      line-height: 48px !important;
+    }
   </style>
 </head>
 
@@ -298,19 +299,18 @@ $rows_1 = $conn->query($sql_select_1);
 
     </form>
 
-
-    <div class="overflow-auto w-100">
-      <table id="lessons-table">
+    <div class="overflow-auto w-100" style="height: 400px;"> <!-- أضف ارتفاعًا للتمرير -->
+      <table id="lessons-table" style="width: 100%; border-collapse: collapse;">
         <thead>
           <tr>
-            <th>#</th>
-            <th>المنطقة</th>
-            <th>اليوم</th>
-            <th>وقت الدرس </th>
-            <th>اسم الكتاب</th>
-            <th>اسم الشيخ</th>
-            <th>الملاحظات</th>
-            <th>الإجراءات</th>
+            <th style="position: sticky; top: 0; z-index: 10;">#</th>
+            <th style="position: sticky; top: 0; z-index: 10;">المنطقة</th>
+            <th style="position: sticky; top: 0; z-index: 10;">اليوم</th>
+            <th style="position: sticky; top: 0; z-index: 10;">وقت الدرس ومكانه</th>
+            <th style="position: sticky; top: 0; z-index: 10;">اسم الكتاب</th>
+            <th style="position: sticky; top: 0; z-index: 10;">اسم الشيخ</th>
+            <th style="position: sticky; top: 0; z-index: 10;">الملاحظات</th>
+            <th style="position: sticky; top: 0; z-index: 10;">الإجراءات</th>
           </tr>
         </thead>
         <tbody>

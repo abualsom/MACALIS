@@ -234,17 +234,19 @@ $is_admin = isset($_SESSION['is_admin']) && $_SESSION['is_admin'] === true;
                     ابحث
                 </button>
             </div>
+
+
             <?php if (!$is_admin): ?>
-                <a href="https://wa.me/963980017439" class="get_whatsapp">تواصل معنا لإضافة الدروس أو تعديلها</a>
+                <a href="https://wa.me/905527999985" class="get_whatsapp">تواصل معنا لإضافة الدروس أو تعديلها</a>
             <?php endif; ?>
         </form>
-
 
         <?php if ($is_admin): ?>
             <div class="text-center mt-3">
                 <a href="info_add.php" class="get_whatsapp">إضافة بيانات جديدة</a>
             </div>
         <?php endif; ?>
+
         <div class="w-100 overflow-auto mt-4" style="max-height: 500px">
             <table class="table table-bordered table-striped table-hover">
                 <thead class="sticky-top bg-light">
@@ -252,7 +254,7 @@ $is_admin = isset($_SESSION['is_admin']) && $_SESSION['is_admin'] === true;
                         <th>#</th>
                         <th>المنطقة</th>
                         <th>اليوم</th>
-                        <th>وقت الدرس </th>
+                        <th>وقت الدرس</th>
                         <th>اسم الكتاب</th>
                         <th>اسم الشيخ</th>
                         <th>الملاحظات</th>
@@ -290,12 +292,12 @@ $is_admin = isset($_SESSION['is_admin']) && $_SESSION['is_admin'] === true;
                                 $rows = $conn->query($sql_select);
                             } else {
                                 echo '
-                <tr>
-                    <td colspan="8" class="text-center">
-                        يرجى تحديد على الأقل قيمة واحدة للبحث.
-                    </td>
-                </tr>
-            ';
+                                    <tr>
+                                        <td colspan="8" class="text-center">
+                                            يرجى تحديد على الأقل قيمة واحدة للبحث.
+                                        </td>
+                                    </tr>
+                                ';
                             }
                         }
                     }
@@ -305,32 +307,32 @@ $is_admin = isset($_SESSION['is_admin']) && $_SESSION['is_admin'] === true;
                             if ($rows->num_rows > 0) {
                                 while ($row = $rows->fetch_assoc()) {
                                     echo '
-                    <tr>
-                        <td>' . $row['id'] . '</td>
-                        <td>' . $row['location'] . '</td>
-                        <td>' . $row['day'] . '</td>
-                        <td>' . $row['ders_tame'] . '</td>
-                        <td>' . $row['book'] . '</td>
-                        <td>' . $row['teacher'] . '</td>
-                        <td>' . $row['notes'] . '</td>
-                ';
+                                        <tr>
+                                            <td>' . $row['id'] . '</td>
+                                            <td>' . $row['location'] . '</td>
+                                            <td>' . $row['day'] . '</td>
+                                            <td>' . $row['ders_tame'] . '</td>
+                                            <td>' . $row['book'] . '</td>
+                                            <td>' . $row['teacher'] . '</td>
+                                            <td>' . $row['notes'] . '</td>
+                                    ';
                                     echo '
-                    <td>
-                        <div class="d-flex justify-content-center gap-2 align-items-center">
-                            <a class="py-2 btn btn-warning update" href="' . $row['adres'] . '">
-                                <i class="bi bi-cursor" id="icon" data-link=""></i>
-                            </a>
-                        </div>
-                    </td>
-                </tr>
-                ';
+                                        <td>
+                                            <div class="d-flex justify-content-center gap-2 align-items-center">
+                                                <a class="py-2 btn btn-warning update" href="' . $row['adres'] . '">
+                                                    <i class="bi bi-cursor" id="icon" data-link=""></i>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    ';
                                 }
                             } else {
                                 echo '
-                <tr>
-                    <td colspan="8" class="text-center">لا توجد بيانات</td>
-                </tr>
-            ';
+                                    <tr>
+                                        <td colspan="8" class="text-center">لا توجد بيانات</td>
+                                    </tr>
+                                ';
                             }
                         }
                     }
@@ -339,15 +341,17 @@ $is_admin = isset($_SESSION['is_admin']) && $_SESSION['is_admin'] === true;
             </table>
         </div>
     </div>
+</body>
 
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#location').select2();
-            $('#teacher').select2();
-            $('#day').select2();
-        });
-    </script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#location').select2();
+        $('#teacher').select2();
+        $('#day').select2();
+    });
+</script>
 
 
 
