@@ -57,6 +57,41 @@ $is_admin = isset($_SESSION['is_admin']) && $_SESSION['is_admin'] === true;
             line-height: 55px;
         }
 
+        h4 {
+            font-size: 14.5px;
+            display: flex;
+            /* استخدام flexbox */
+            justify-content: center;
+            /* محاذاة النص أفقيًا */
+            align-items: center;
+            /* محاذاة النص عموديًا */
+            height: 45px;
+            border-radius: 5px;
+            background-color: rgb(153, 11, 11);
+            color: rgb(255, 255, 255);
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 25px;
+            /* مسافة أسفل العنصر */
+            padding: 0;
+        }
+
+        /* التنسيق الخاص بالشاشات الكبيرة (لابتوب وأجهزة أكبر) */
+        @media (min-width: 768px) {
+            h4 {
+                width: 50%;
+                /* عرض المربع يصبح نصف عرض الصفحة */
+                max-width: 600px;
+                /* حد أقصى للعرض */
+                min-width: 300px;
+                /* حد أدنى للعرض */
+                margin: 0 auto 23px;
+                /* يضع العنصر في منتصف الصفحة ويضيف مسافة إضافية أسفل العنصر */
+                font-size: 22px;
+            }
+        }
+
+
         .btn-primary {
             background-color: rgb(11, 153, 141);
             border-color: rgb(17, 118, 119);
@@ -163,10 +198,11 @@ $is_admin = isset($_SESSION['is_admin']) && $_SESSION['is_admin'] === true;
 <body>
     <div class="container bg-white p-3 rounded shadow">
         <h2 class="text-center"> أماكن مجالس العلم والخير</h2>
+        <h4>يمكنك البحث باستخدام أحد هذه الخيارات أو كلها </h4>
         <form action="" method="GET" class="needs-validation" novalidate>
             <div class="d-flex flex-wrap">
                 <div class="form-group d-flex flex-column">
-                    <label for="location">اختر المنطقة:</label>
+                    <!-- <label for="location">اختر المنطقة:</label> -->
                     <select
                         id="location"
                         name="location"
@@ -187,7 +223,7 @@ $is_admin = isset($_SESSION['is_admin']) && $_SESSION['is_admin'] === true;
                 </div>
 
                 <div class="form-group d-flex flex-column">
-                    <label for="day">اختر اليوم:</label>
+                    <!-- <label for="day">اختر اليوم:</label> -->
                     <select id="day" name="day" class="form-control mx-auto" required>
                         <option value="">اختر اليوم </option>
                         <option value="الجمعة">الجمعة</option>
@@ -202,7 +238,7 @@ $is_admin = isset($_SESSION['is_admin']) && $_SESSION['is_admin'] === true;
 
                 </div>
                 <div class="form-group d-flex flex-column">
-                    <label for="teacher">اختر الشيخ:</label>
+                    <!-- <label for="teacher">اختر الشيخ:</label> -->
                     <select
                         id="teacher"
                         name="teacher"
