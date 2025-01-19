@@ -5,7 +5,7 @@ session_start();
 include('conn.php');
 
 if (!isset($_SESSION['is_admin']) || !$_SESSION['is_admin']) {
-    header('Location: login.php');
+    header('Location: index.php');
     exit;
 }
 
